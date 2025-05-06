@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>邀请你打羽毛球</title>
+    <title>打羽毛球啦</title>
 
     <script>
         function init_viewport(){
@@ -139,7 +139,7 @@
 <body>
     <div id="div_container">
         <div id="invitation_header">
-            <h1>周末一起打羽毛球吗？</h1>
+            <h1>打羽毛球吗？</h1>
             <p style="font-size:1.1em;">欢迎加入我们的羽毛球小队，请输入你的名字：</p>
             <input type="text" id="input_name" placeholder="你的名字" maxlength="10" oninput="toggleButton()">
             <br>
