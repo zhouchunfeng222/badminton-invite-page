@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>邀请你打羽毛球</title>
+    <title>打羽毛球啦</title>
 
     <!-- 前面的部分保持不变 -->
 
@@ -30,7 +30,7 @@
 
         <!-- 邀请信息展示区域 -->
         <div id="invitation_result">
-            <p><strong id="name_placeholder"></strong>，周六下午三点我们在体育馆等你来打球！</p>
+            <p><strong id="name_placeholder"></strong>，19：00-21:00我们在超越体育馆等你来打球！</p>
             <p>记得带上水杯和球拍哦~</p>
             
             <!-- 地图位置 -->
