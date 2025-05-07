@@ -1,108 +1,54 @@
-# Time to play badminton!
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>打羽毛球啦</title>
-
-    <!-- 前面的部分保持不变 -->
-
+    <title>邀请你打羽毛球</title>
     <style>
-        /* 前面的样式保持不变 */
-
-        #map {
-            width: 100%;
-            height: 300px;
-            margin-top: 20px;
+        body {
+            background: url('https://broadscope-dialogue-new.oss-cn-beijing.aliyuncs.com/output/20250507/d00fa899079ecf9f563443f1ed2ac1f1.webp?Expires=1778116779&OSSAccessKeyId=LTAI5tL97mBYzVcjkG1cUyin&Signature=wlNWetPc%2BRpOLk9gfr%2FPGGWd8cA%3D') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            animation: fadeInOut 30s infinite;
         }
 
-        #countdown {
-            font-size: 1.5em;
-            color: red;
-            margin-top: 20px;
+        @keyframes fadeInOut {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        #div_container {
+            width: 500px;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            padding-top: 30px;
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        /* 羽毛球动画示例 */
+        .shuttlecock {
+            width: 50px;
+            height: 50px;
+            background: url('URL_TO_SHUTTLECOCK_IMAGE') no-repeat;
+            background-size: contain;
+            animation: flyUp 3s ease-in-out infinite;
+        }
+
+        @keyframes flyUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-300px); }
         }
     </style>
 </head>
-
 <body>
     <div id="div_container">
-        <!-- 前面的内容保持不变 -->
-
-        <!-- 邀请信息展示区域 -->
-        <div id="invitation_result">
-            <p><strong id="name_placeholder"></strong>，19：00-21:00我们在超越体育馆等你来打球！</p>
-            <p>记得带上水杯和球拍哦~</p>
-            
-            <!-- 地图位置 -->
-            <div id="map">
-                <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
-            <!-- 倒计时 -->
-            <div id="countdown">活动倒计时：Loading...</div>
-        </div>
+        <h1>让我们一起打羽毛球吧！</h1>
+        <p>期待在球场上见到你！</p>
+        <!-- 添加羽毛球动画 -->
+        <div class="shuttlecock"></div>
     </div>
-
-    <!-- 背景音乐部分保持不变 -->
-
-    <script>
-        // 前面的脚本保持不变
-
-        function showInvitation() {
-            const name = document.getElementById("input_name").value.trim();
-            const resultDiv = document.getElementById("invitation_result");
-            const namePlaceholder = document.getElementById("name_placeholder");
-
-            if (name === '') return;
-
-            namePlaceholder.textContent = name;
-            resultDiv.style.display = 'block';
-
-            // 隐藏输入框
-            document.getElementById("invitation_header").style.display = 'none';
-
-            // 尝试播放音乐（移动端需用户操作后才能播放）
-            const music = document.getElementById("bg-music");
-            if (music.paused) {
-                music.play().catch(() => {
-                    alert("由于浏览器限制，请先点击页面任意位置以播放音乐");
-                });
-            }
-
-            // 设置倒计时
-            setCountdown();
-        }
-
-        function setCountdown() {
-            const countdownElement = document.getElementById('countdown');
-            const eventDate = new Date("May 11, 2025 15:00:00").getTime(); // 修改为你想要的日期和时间
-
-            const timer = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = eventDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = "活动倒计时：" + days + "天 " + hours + "小时 "
-                    + minutes + "分钟 " + seconds + "秒";
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    countdownElement.innerHTML = "活动已经开始！";
-                }
-            }, 1000);
-        }
-
-        // 移动端点击任意地方允许播放音乐
-        document.addEventListener("click", () => {
-            const music = document.getElementById("bg-music");
-            if (music.paused) {
-                music.play().catch(() => {});
-            }
-        }, { once: true });
-    </script>
 </body>
 </html>
